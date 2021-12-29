@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 import { SideBar } from './components/SideBar';
 import { Content } from './components/Content';
@@ -27,7 +27,7 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function App() {
+export const App = () => { 
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
@@ -70,3 +70,5 @@ export function App() {
     </div>
   )
 }
+
+export default memo(App)
